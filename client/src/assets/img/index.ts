@@ -1,0 +1,1 @@
+export {default as images} from "./Salvar_al_soldado_Ryan.png"
