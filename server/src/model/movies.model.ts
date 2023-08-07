@@ -1,41 +1,35 @@
-import { Document, Schema, model } from "mongoose";
-//interface de tipado de las movies
+import { Document,Types, Schema, model } from "mongoose";
+import { IGenre } from "./genre.model";
+
+
 interface IMoviesDocument extends Document {
-
-    name: string;
-    year: number;
-    score: number;
-    genre: string;
-    createAt: Date;
-    updatedAt: Date
+  name: string;
+  score: number;
+  year: number;
+  genres: Array<IGenre["_id"]>;
+  createdAt: Date;
+  updatedAt: Date;
 }
-//esquema de las movies
-const MoviesSchema = new Schema<IMoviesDocument>({
 
+const MoviesSchema = new Schema<IMoviesDocument>(
+  {
     name: {
-        type: String,
-        required: [true, "name is required"]
+      type: String,
+      required: [true, "Name is required"],
     },
+    score:{ 
+      type: Number, 
+      required: [true, "Score is required"], 
+   },
+   year: {
+      type: Number,
+   },
+   genres: [{ type: Schema.Types.ObjectId, ref: "Genres"}]
 
-    year: {
-        type: Number,
-        required: [true, "year is required"]
-    },
-
-    score: {
-        type: Number,
-        required: [true, "score is required"]
-    },
-
-    genre: {
-        type: String,
-        required: [true, "score is required"]
-    },
-},
-    { timestamps: true, versionKey: false }
-
+  },
+  { timestamps: true, versionKey: false }
 );
-//modelo que se exporta para que los controladores funcionen
+
 const MoviesModel = model<IMoviesDocument>("Movies", MoviesSchema);
 
 export default MoviesModel;

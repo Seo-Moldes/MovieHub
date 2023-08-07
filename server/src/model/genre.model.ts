@@ -1,25 +1,26 @@
-import { Document, Types, model, Schema } from "mongoose";
+import { Document,  model, Schema } from "mongoose";
 
-interface IGenre extends Document{
-    
-    name: string;
-    createAt: Date;
-    updateAt: Date;
-};
+
+export interface IGenre extends Document{
+
+    genre: string;
+    createdAt: Date;
+    updatedAt: Date;
+
+}
 
 const GenreSchema = new Schema<IGenre>(
     {
-      
-        name: {
+        genre: {
             type: String,
-            required: [true, "Name is required"],
-            unique: true,
-            trim: true
-        }
+            required: [true, "Genre is required"],
+            unique: true
+
+        },
     },
     {timestamps: true, versionKey: false}
 );
 
-const GenreModel = model<IGenre>("Genre", GenreSchema);
+const GenresModel = model<IGenre>("Genres", GenreSchema)
 
-export default GenreModel;
+export default GenresModel;

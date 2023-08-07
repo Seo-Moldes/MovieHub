@@ -1,10 +1,8 @@
 import express, { Express } from "express";
-import MoviesRouter from "./routes/movies.routes";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import UserRouter from "./routes/user.routes";
-import GenreRouter from './routes/genre.routes';
 import cors from "cors";
+import { GenreRouter, MoviesRouter, UserRouter } from "./routes";
 
 const app: Express = express();
 
@@ -15,7 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 app.use("/movies", MoviesRouter)
-app.use("/user", UserRouter)
+app.use("/users", UserRouter)
 app.use("/genres", GenreRouter)
 
 export default app;

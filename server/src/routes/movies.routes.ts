@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { createMovie, getAllMovies, getMovieById, removeMovieByID, updateMovie } from "../controllers/movies.controller";
+import { createMovie, deleteMovieByID, getAllMovies, getMovieByID, updateMovieByID} from "../controllers/movies.controller";
 import { check } from "../middleware/check.middleware";
 
 const MoviesRouter = Router();
 
 MoviesRouter
-    .post("/", check, createMovie)
+    .post("/:userID", check, createMovie)
     .get("/", getAllMovies)
-    .get("/:movieID", getMovieById)
-    .delete("/:movieID", removeMovieByID)
-    .put("/:movieID", updateMovie)
+    .get("/:movieID", getMovieByID)
+    .delete("/:movieID", deleteMovieByID)
+    .put("/:movieID", updateMovieByID)
 
 export default MoviesRouter;
