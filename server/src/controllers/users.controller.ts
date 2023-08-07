@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import UserModel from "../model/user.model";
+import prisma from '../db/prismaClient';
 
 export const createUser = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
@@ -11,12 +12,14 @@ export const createUser = async (req: Request, res: Response) => {
             return;
         }
 
-        const newUser = await UserModel.create({
-            name,
-            email,
-            password
-        })
+        const newUser = await prisma.user.create({
 
+           data: {
+            name, email, password
+           }
+        })
+         
+           
         res.status(201).json(newUser);
 
     } catch (error) {
