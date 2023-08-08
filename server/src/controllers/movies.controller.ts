@@ -73,14 +73,17 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
 export const getMovieByID = async (req: Request, res: Response): Promise<Response> => {
   const { movieID } = req.params;  
   try {
-    const movie = await MoviesModel.findById(movieID)
+    const movie = await prisma.movies.findUnique({
+      where:{id:movieID}
+
+    })
     if (!movie){
       return res.status(404).send({msg: "Movie not found"});
     }
     //Fetch the genres using genreIds
-    const genreIds = movie.genres
-    const genres = await GenresModel.find({_id: { $in: genreIds }}, {_id: 1, genre: 1  })
-    movie.genres = genres
+    // const genreIds = movie.genres
+    // const genres = await GenresModel.find({_id: { $in: genreIds }}, {_id: 1, genre: 1  })
+    // movie.genres = genres
     
     return res.status(200).send(movie);
   } catch (error) {
@@ -110,16 +113,14 @@ export const getAllMovies = async (req: Request, res: Response): Promise<Respons
 
 export const updateMovieByID = async (req: Request, res: Response): Promise<Response> => {
   const { movieID } = req.params;
-  const { name, score, year, genres } = req.body;
+  const { title, score, year, genres } = req.body;
   try {
-    const movie = await MoviesModel.findByIdAndUpdate(movieID,{ $set: { name, score, year, genres }, }, { new: true })
-     await UserModel.findByIdAndUpdate(
-      movieID,
-      {
-        $set: { name, score, year },
-      },
-      { new: true }
-    );
+    const movie = await prisma.movies.update({
+
+      where: { id: movieID }, 
+            data: { title, score, year, genres }, 
+    })
+   
     return res.status(200).send(movie);
   } catch (error) {
     console.log(error);
@@ -130,8 +131,11 @@ export const deleteMovieByID = async (req: Request, res: Response): Promise<Resp
   const { movieID } = req.params;
   
   try {
-    await UserModel.findByIdAndDelete(movieID);
-    await MoviesModel.findByIdAndDelete(movieID);
+    await prisma.movies.delete({
+
+      where: {id:movieID}
+    })
+    
 
     return res.status(200).send("Deleted movie by ID");
   } catch (error) {
