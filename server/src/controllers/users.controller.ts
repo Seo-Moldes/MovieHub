@@ -67,9 +67,6 @@ export const updateUserById = async (req: Request, res: Response) => {
             where: { id: userID }, 
             data: { name, email, password }, 
         })
-        
-        // UserModel.findByIdAndUpdate(userID,
-        //     { $set: { name: name, email: email } }, { new: true })
 
          res.status(200).json(user);
 
