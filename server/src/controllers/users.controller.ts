@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import UserModel from "../model/user.model";
-import prisma from '../db/clientPrisma';
+
+import prisma from '../db/prismaClient';
 
 export const createUser = async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
