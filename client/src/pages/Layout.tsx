@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom"
 import { MainGrid } from "."
 import { Footer, Header, Main } from "../components"
 
@@ -9,7 +10,11 @@ export const Layout = () => {
     <MainGrid>
 
       <Header/>
-      <Main/>
+      <main className="mainGrid">
+
+        <Outlet/>
+
+      </main>
       <Footer/>
 
     </MainGrid>

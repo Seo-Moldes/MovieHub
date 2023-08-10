@@ -38,6 +38,7 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
         users: true
       },
     });
+    
     await prisma.users.update({
       where: { id: userID },
       data: {
