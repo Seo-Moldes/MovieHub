@@ -2,16 +2,21 @@ import { Request, Response } from "express";
 import prisma from "../db/prismaClient";
 
 export const createUser = async (req: Request, res: Response): Promise<Response> => {
-    const { name, email, password, moviesArray } = req.body;
+    const { name, email } = req.body;
 
     try {
 
-        if (!name || !email || !password) {
-            return res.status(400).json({ error: "Missing required fields" });
+        const user = await prisma.users.findFirst({
+            where: {
+                email: email
+            }
+        })
+        if (user) {
+            return res.send('User already exists')
         }
 
         const newUser = await prisma.users.create({
-            data: { name, email, password, moviesArray },
+            data: { email: email, name: name},
         });
 
         return res.status(201).json(newUser);
@@ -19,6 +24,7 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
         return res.status(500).json(error);
     }
 };
+
 
 export const getAllUsers = async (req: Request, res: Response): Promise<Response> => {
     try {
@@ -66,7 +72,7 @@ export const updateUserByID = async (req: Request, res: Response): Promise<Respo
     try {
         const user = await prisma.users.update({
             where: { id: userID },
-            data: { name, email, password }
+            data: { name, email }
         });
 
 
@@ -120,6 +126,7 @@ export const deleteUserByID = async (req: Request, res: Response): Promise<Respo
         return res.status(500).json(error);
     }
 };
+
 
 
 

@@ -42,7 +42,7 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
     await prisma.users.update({
       where: { id: userID },
       data: {
-        moviesArray: { push: newMovie.title }
+        
       }
     })
 
@@ -81,7 +81,7 @@ export const getAllMovies = async (req: Request, res: Response): Promise<Respons
       },
     });
 
-    return res.status(200).send(movies);
+    return res.status(200).json(movies);
   } catch (error) {
     return res.status(500).send(error);
   }
@@ -127,7 +127,7 @@ export const deleteMovieByID = async (req: Request, res: Response): Promise<Resp
       await prisma.users.update({
         where: { id: userID },
         data: {
-          moviesArray: { set: movie.users?.moviesArray.filter((title: string) => title !== movie.title) },
+          
         },
       });
     }
