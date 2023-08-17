@@ -39,7 +39,7 @@ export const getAllUsers = async (req: Request, res: Response): Promise<Response
             }
         });
 
-        return res.status(200).json({ status: "Success", msg: "Get All Users Succesfully", allUsers });
+        return res.status(200).json( allUsers );
     } catch (error) {
         return res.status(500).send(error);
     }

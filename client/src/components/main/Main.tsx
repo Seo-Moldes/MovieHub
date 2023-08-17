@@ -1,4 +1,5 @@
 import { MainStyles } from ".."
+import { TestApi, TestApi1, TestApi2 } from "../../api/testApi"
 import { Card } from "../card/Card"
 
 export const Main = () => {
@@ -24,6 +25,9 @@ export const Main = () => {
       <Card/>
       <Card/>
       <Card/>
+      <TestApi/>
+      <TestApi1/>
+      <TestApi2/>
 
     </div>
 
