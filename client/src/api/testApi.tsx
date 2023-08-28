@@ -76,8 +76,6 @@ export const TestApi2 = () => {
  useEffect(() => {
 
 
-   
-   
     const fecthUsers = async () => {
 
         const data =  await FetchApi("users", getAccessTokenSilently )

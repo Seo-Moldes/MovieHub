@@ -1,31 +1,31 @@
-// export const postApi = async (url: string, data: any, getToken: any) => {
+export const postApi = async (url: string, data: any, getToken: any) => {
 
-// const token = await getToken();
+const token = await getToken();
 
-// try {
+try {
 
-//     const response = await fetch(url, {
+    const response = await fetch(url, {
 
-//         method: "POST",
-//         headers: {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json", 
+            authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+    })
 
-//             authorization: `Bearer ${token}`,
-//         },
-//         body: JSON.stringify(data),
-//     })
+    if (response.ok) {
 
-//     if (response.ok) {
-
-//         console.log("Successfully loged");
+        console.log(response);
         
-//     }else{
-//         throw new Error("Network response was not ok");
+    }else{
+        throw new Error("No response");
         
-//     }
+    }
 
-// } catch (error) {
-//     console.log(error);
+} catch (error) {
+    console.log(error);
 
-// }
+}
 
-// }
+}
