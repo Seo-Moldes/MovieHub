@@ -2,10 +2,17 @@ import { Request, Response } from "express";
 import prisma from "../db/prismaClient";
 
 export const createMovie = async (req: Request, res: Response): Promise<Response> => {
-  const { title, year, score, genres } = req.body;
-  const { userID } = req.params;
+
 
   try {
+
+    const { title, year, score, genres } = req.body;
+    const { userID } = req.params;
+    
+    if (req.files) {
+      const { image } = req.files
+      console.log(image);
+    }
 
     const genreIDs: string[] = [];
 
@@ -38,11 +45,11 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
         users: true
       },
     });
-    
+
     await prisma.users.update({
       where: { id: userID },
       data: {
-        
+
       }
     })
 
@@ -127,7 +134,7 @@ export const deleteMovieByID = async (req: Request, res: Response): Promise<Resp
       await prisma.users.update({
         where: { id: userID },
         data: {
-          
+
         },
       });
     }

@@ -14,7 +14,7 @@ const url = "http://localhost:3000/users";
 
   useEffect(() => {
     
-  if(user){postApi(url, user, getAccessTokenSilently) } 
+  if(user){postApi(url, user, getAccessTokenSilently)} 
   
   }, [user])
   

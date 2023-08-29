@@ -27,7 +27,6 @@ const onsubmit = handleSubmit( (data: any) => {
         <button className="btn__login" onClick={(): Promise<void> => loginWithRedirect()}>Login</button>}
 
    
-
       {modalIsOpen && (
         <ModalContainer>
           <ModalContent>
