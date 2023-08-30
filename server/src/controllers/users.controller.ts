@@ -53,7 +53,7 @@ export const getUserByID = async (req: Request, res: Response): Promise<Response
     const { userID } = req.params;
     try {
         const userById = await prisma.users.findUnique({
-            where: { id: userID },
+            where: { email: userID },
             include: {
                 movies: {
                     include: {
@@ -71,7 +71,7 @@ export const getUserByID = async (req: Request, res: Response): Promise<Response
 
 export const updateUserByID = async (req: Request, res: Response): Promise<Response> => {
     const { userID } = req.params;
-    const { name, email, password } = req.body;
+    const { name, email } = req.body;
 
     try {
         const user = await prisma.users.update({

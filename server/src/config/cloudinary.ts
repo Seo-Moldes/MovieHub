@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import { fileURLToPath } from "url";
 import config from "./config";
 
 cloudinary.config({

@@ -2,15 +2,20 @@ import { useState } from "react";
 import { ModalButton, ModalContainer, ModalContent, ModalStyles } from "./modal.styles";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useForm } from "react-hook-form";
+import { createMovie } from "../../api/createMovie";
+
 
 export const Modal = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
   const {register, handleSubmit} = useForm();
 
 const onsubmit = handleSubmit( (data: any) => {
-  console.log(data);
+
+  const url = `http://localhost:3000/movies/${user?.email}`;
+  
+  createMovie(url, data, getAccessTokenSilently)
   
 })
 
@@ -45,9 +50,14 @@ const onsubmit = handleSubmit( (data: any) => {
                 <input className="form__modal-div-input" type="text" id="formModalGenre" {...register("Genre")} />
               </div>
               <div className="form__modal-div">
-                <label className="form__modal-div-label" htmlFor="formModalFile">Upload File</label>
-                <input className="form__modal-div-input" type="file" id="formModalFile" {...register("File")} />
+                <label className="form__modal-div-label" htmlFor="formModalYear">Year</label>
+                <input className="form__modal-div-input" type="text" id="formModalYear" {...register("Year")} />
               </div>
+              <div className="form__modal-div">
+                <label className="form__modal-div-label" htmlFor="formModalFile">Upload File</label>
+                <input className="form__modal-div-input" type="file" id="formModalFile" {...register("Image")} />
+              </div>
+             
               <button className="form__modal-btnAddMovie" type="submit">Add Movie</button>
            
             </form>

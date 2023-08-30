@@ -1,7 +1,29 @@
-import { images } from "../../assets/img/index"
 import { CardStyles } from "./card.styles"
 
-export const Card = () => {
+export interface MoviesType {
+  id: string;
+  title: string;
+  score: number;
+  year: number;
+  country: string;
+  imageId: string;
+  genres: GenreType[];
+  genresArray: string[];
+  createdAt: string;
+  updatedAt: string;
+  usersId: string;
+}
+
+interface GenreType {
+  id: string;
+  genre: string;
+  createdAt: string;
+  updatedAt: string;
+  moviesId: string[];
+}
+
+export const Card = ({...props}) => {
+  console.log(props);
 
 
   return (
@@ -9,19 +31,21 @@ export const Card = () => {
 <CardStyles>
 
 <div className="card__div1">
-    <img className="card__div1-img" src={images} alt={images} />
+    <img className="card__div1-img" src={props.imageUrl} alt={props.title} />
 </div>
 
 <div className="card-text">
-<h2>Salvar al soldado Ryan</h2>
+<h2>{props.title}</h2>
 </div>
 <div className="card-text">
-<h3>Bélico</h3>
+<h3>{props.genresArray}</h3>
 </div>
 <div className="card-text">
-<h4>Año 1998</h4>
+<h4>{props.year}</h4>
 </div>
-
+<div className="card-text">
+<h4>{props.score}</h4>
+</div>
 <div className="card__div2"></div>
 <div className="card__div3"></div>
 
