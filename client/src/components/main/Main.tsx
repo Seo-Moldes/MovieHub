@@ -9,36 +9,38 @@ export const Main = () => {
 
   const [movieData, setMovieData] = useState([])
 
-const {getAccessTokenSilently, user} = useAuth0()
+  const { getAccessTokenSilently, user } = useAuth0()
 
-const url = `users/${user?.email}`
+  const url = `users/${user?.email}`
+  const fetchData = async () => {
 
-useEffect(() => {
+    const data = await FetchApi(url, getAccessTokenSilently)
+    setMovieData(data.movies)
+
+  }
+  useEffect(() => {
+
   
-const fetchData = async () => {
+    fetchData();
 
-  const data = await  FetchApi(url, getAccessTokenSilently)
-  setMovieData(data.movies)
- 
-}
-fetchData()
+    
 
-}, [])
+  }, [url])
 
-useEffect(() => {
- console.log(movieData);
- 
-}, [movieData])
+  useEffect(() => {
+    
+
+  }, [movieData])
 
   return (
     <MainStyles>
-    <div className="main-card">
-    {movieData.map((movies:MoviesType) => (
-        <Card key={movies.id} {...movies} />
-          
-      ))}
+      <div className="main-card">
+        {movieData.map((movies: MoviesType) => (
+          <Card key={movies.id} {...movies} fetchData = {fetchData} />
 
-    </div>
+        ))}
+
+      </div>
 
     </MainStyles>
   )

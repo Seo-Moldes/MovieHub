@@ -12,6 +12,7 @@ cloudinary.config({
 export const uploadImage = async (path:any) => {
 
 return await cloudinary.uploader.upload(path,{folder:"imgMovies"})
+
 };
 
 export const deleteImage = async (imageId:string) => {

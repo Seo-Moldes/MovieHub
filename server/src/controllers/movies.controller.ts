@@ -64,7 +64,7 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
       await prisma.users.update({
         where: { email: userID },
         data: {
-moviesArray: {push: newMovie.title}
+          moviesArray: { push: newMovie.title }
         }
       })
 

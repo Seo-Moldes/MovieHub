@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ModalButton, ModalContainer, ModalContent, ModalStyles } from "./modal.styles";
+import { ModalButton, ModalContainer, ModalContent, ModalStyles } from "./modalPut.styles";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useForm } from "react-hook-form";
-import { createMovie } from "../../api/createMovie";
+import { editMovie } from "../../api/editMovie";
 
 
-export const Modal = () => {
+export const ModalPut = () => {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const { loginWithRedirect, logout, isAuthenticated, user, getAccessTokenSilently } = useAuth0();
@@ -15,7 +15,7 @@ const onsubmit = handleSubmit( (data: any) => {
 
   const url = `http://localhost:3000/movies/${user?.email}`;
   
-  createMovie(url, data, getAccessTokenSilently)
+  editMovie(url, data, getAccessTokenSilently)
   
 })
 
@@ -26,7 +26,7 @@ const onsubmit = handleSubmit( (data: any) => {
   return (
 
     <ModalStyles>
-      {isAuthenticated && (<button className="modal__btn-open" onClick={toggleModal}> Add </button>)}
+      {isAuthenticated && (<button className="modal__btn-open" onClick={toggleModal}> Modify </button>)}
       {isAuthenticated ? (<button className="btn__logout" onClick={(): Promise<void> => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>) :
 
         <button className="btn__login" onClick={(): Promise<void> => loginWithRedirect()}>Login</button>}
