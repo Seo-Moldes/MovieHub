@@ -25,7 +25,7 @@ if(user) {
   useEffect(() => {
 
     fetchData();
-    const fetchInterval = setInterval(() => fetchData(), 5000);
+    const fetchInterval = setInterval(() => fetchData(), 3000);
         return () =>
             clearInterval(fetchInterval);
 
