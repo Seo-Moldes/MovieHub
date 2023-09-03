@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {prismaClient as prisma} from '../config/prismaClient'
 
+
 export const createUser = async (req: Request, res: Response): Promise<Response> => {
 
     try {
