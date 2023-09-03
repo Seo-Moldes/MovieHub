@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../db/prismaClient";
+import {prismaClient as prisma} from '../config/prismaClient'
 
 export const createGenre = async (req: Request, res: Response): Promise<Response> => {
   const { genre } = req.body;

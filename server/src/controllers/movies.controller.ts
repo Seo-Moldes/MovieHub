@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import prisma from "../db/prismaClient";
 import { uploadImage } from "../config/cloudinary";
 import fs from "fs-extra";
+import {prismaClient as prisma} from '../config/prismaClient'
+
 
 export const createMovie = async (req: Request, res: Response): Promise<Response> => {
 
