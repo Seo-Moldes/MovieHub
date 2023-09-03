@@ -8,3 +8,5 @@ export * from './main/Main';
 export * from './main/main.styles';
 export * from './modal/Modal';
 export * from './modal/modal.styles';
+export * from './modalUpdate/ModalUpdate';
+export * from './modalUpdate/modalUpdate.styles';

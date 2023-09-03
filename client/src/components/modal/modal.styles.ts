@@ -1,14 +1,23 @@
 import styled from 'styled-components';
 export const ModalStyles = styled.div`
 .modal__btn-open {
-
     width: 5vw;
     height: 5vh;
 }
 
+.btn__logout {
+width: 5vw;
+height: 5vh;
+}
+
+.btn__login {
+width: 5vw;
+height: 5vh;
+}
+
 `;
 
- export const ModalContainer = styled.div`
+export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +30,7 @@ export const ModalStyles = styled.div`
   z-index: 100;
 `;
 
- export const ModalContent = styled.div`
+export const ModalContent = styled.div`
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;

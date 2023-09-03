@@ -1,98 +1,136 @@
-import { Request, Response } from 'express';
-import UserModel from "../model/user.model";
+import { Request, Response } from "express";
+import {prismaClient as prisma} from '../config/prismaClient'
 
-export const createUser = async (req: Request, res: Response) => {
-    const { name, email, password } = req.body;
+export const createUser = async (req: Request, res: Response): Promise<Response> => {
 
     try {
+    const { name, email } = req.body;
 
-        if (!name || !email || !password) {
-            res.status(400).json({ error: "Missing required fields" });
-            return;
+        console.log(name, email);
+
+        const user = await prisma.users.findFirst({
+            where: {
+                email: email
+            }
+        })
+        if (user) {
+            console.log(user);
+            
+            return res.send('User already exists')
         }
 
-        const newUser = await UserModel.create({
-            name,
-            email,
-            password
+        const newUser = await prisma.users.create({
+            data: { email: email, name: name},
+        });
+
+        return res.status(201).json(newUser);
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+};
+
+
+export const getAllUsers = async (req: Request, res: Response): Promise<Response> => {
+    try {
+
+        const allUsers = await prisma.users.findMany({
+            include: {
+                movies: {
+                    include: {
+                        genres: true
+                    }
+                }
+            }
+        });
+
+        return res.status(200).json( allUsers );
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+};
+
+export const getUserByID = async (req: Request, res: Response): Promise<Response> => {
+    const { userID } = req.params;
+    try {
+        const userById = await prisma.users.findUnique({
+            where: { email: userID },
+            include: {
+                movies: {
+                    include: {
+                        genres: true
+                    }
+                }
+            }
         })
 
-        res.status(201).json(newUser);
-
+        return res.status(200).json(userById);
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
-}
+};
 
-export const getAllUsers = async (req: Request, res: Response) => {
+export const updateUserByID = async (req: Request, res: Response): Promise<Response> => {
+    const { userID } = req.params;
+    const { name, email } = req.body;
+
     try {
-        const allUsers = await UserModel.find().populate({
-            path: "movies",
-            populate: {
-                path: "genres",
-                select: "_id genre",
-            },
+        const user = await prisma.users.update({
+            where: { id: userID },
+            data: { name, email }
         });
 
 
-        res.status(200).json(allUsers);
-
+        return res.status(200).json({ status: "Success", msg: "Get User By Id Succesfully", user });
     } catch (error) {
-        res.status(500).send(error);
+        return res.status(500).json(error);
     }
-}
+};
 
-export const getUserByID = async (req: Request, res: Response) => {
+export const deleteUserByID = async (req: Request, res: Response): Promise<Response> => {
     const { userID } = req.params;
+
     try {
-        const userById = await UserModel.findById(userID).populate({
-            path: "movies",
-            populate: {
-                path: "genres",
-                select: "_id genre",
+
+        const user = await prisma.users.findUnique({
+            where: { id: userID },
+            include: {
+                movies: {
+                    include: {
+                        genres: true,
+                    },
+                },
             },
-        })
+        });
 
+        if (!user) {
+            return res.status(404).json({ status: "Error", msg: "User not found" });
+        }
 
-        res.status(200).json(userById);
+        for (const movie of user.movies) {
 
+            await prisma.genres.updateMany({
+                where: {
+                    moviesId: movie.id,
+                },
+                data: {
+                    moviesId: null,
+                },
+            });
+
+            await prisma.movies.delete({
+                where: { id: movie.id },
+            });
+        }
+        await prisma.users.delete({
+            where: { id: userID },
+        });
+
+        return res.status(200).json({ status: "Success", msg: "Delete User" });
     } catch (error) {
-        res.status(500).json(error);
+        return res.status(500).json(error);
     }
-}
+};
 
-export const updateUserById = async (req: Request, res: Response) => {
-    const { userID } = req.params;
-    const { name, email } = req.body;
-    try {
 
-        const user = await UserModel.findByIdAndUpdate(userID,
-            { $set: { name: name, email: email } }, { new: true })
 
-        res.status(200).json(user);
 
-    } catch (error) {
-        res.status(500).json(error);
-    }
-}
-
-export const deleteUserByID = async (req: Request, res: Response) => {
-    const { userID } = req.params;
-    try {
-
-        await UserModel.findByIdAndDelete(userID)
-        res.status(200).json();
-    } catch (error) {
-        res.status(500).json(error);
-    }
-}
-
-export const updateAllUsers = async (req: Request, res: Response) => {
-    try {
-        const allUsers = await UserModel.findOneAndUpdate().populate("movies").populate("movies.genres.genre")
-        res.status(200).json(allUsers);
-
-    } catch (error) {
-        res.status(500).json(error);
-    }
-}

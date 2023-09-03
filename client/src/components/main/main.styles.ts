@@ -17,6 +17,5 @@ justify-content: center;
     height: 80%;
     padding: 1vw;
     gap: 1vw;
-    overflow: auto;
 }
 `;
