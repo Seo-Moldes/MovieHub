@@ -115,20 +115,48 @@ export const getAllMovies = async (req: Request, res: Response): Promise<Respons
 
 export const updateMovieByID = async (req: Request, res: Response): Promise<Response> => {
   const { movieID } = req.params;
-  const { title, score, year, genres } = req.body;
+  let { title, score, year, genres } = req.body;
+
+  if (typeof title !== "string") title = title.toString();
+  if (typeof year !== "number") year = Number(year);
+  if (typeof score !== "number") score = Number(score);
+  if (!Array.isArray(genres)) genres = [genres];
+
   try {
+    const genreIDs: string[] = [];
 
-    const movie = await prisma.movies.update({
-      where: { id: movieID },
-      data: { title, score, year, genres },
-    });
+    for (const genreName of genres) {
+      let genre = await prisma.genres.findUnique({ where: { genre: genreName } });
 
-    return res.status(200).send(movie);
+      if (!genre) {
+        genre = await prisma.genres.create({ data: { genre: genreName } });
+      }
+      genreIDs.push(genre.id);
+    }
+    
+
+
+      const movieUpdate = await prisma.movies.update({
+        where: { id: movieID },
+        data: {
+          title,
+          score,
+          year,
+          genres: {
+            connect: genreIDs.map((genreID: string) => ({ id: genreID })),
+          },
+         
+        },
+      });
+
+      return res.status(200).send(movieUpdate);
+    
   } catch (error) {
     console.log(error);
     return res.status(500).send(error);
   }
 };
+
 
 export const deleteMovieByID = async (req: Request, res: Response): Promise<Response> => {
   const { movieID } = req.params;

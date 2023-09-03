@@ -12,7 +12,6 @@ export const deleteMovie = async (url: string, getToken: any) => {
                 authorization: `Bearer ${token}`,
                 
             },
-           
         })
 
         if (response.ok) {

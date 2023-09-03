@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { deleteMovie } from "../../api/deleteMovie";
-import { ModalPut } from "../modalPut/modalPut";
+import { ModalUpdate } from "../modalUpdate/ModalUpdate";
 import { CardStyles } from "./card.styles"
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -41,6 +42,12 @@ props.fetchData()
 
 }
 
+useEffect(() => {
+console.log(props.genres);
+
+
+}, [])
+
   return (
 
     <CardStyles>
@@ -53,7 +60,8 @@ props.fetchData()
         <h2>{props.title}</h2>
       </div>
       <div className="card-text">
-        <h3>{props.genresArray}</h3>
+      <h3> {props.genres[0] && props.genres[props.genres.length-1].genre}  </h3>
+        
       </div>
       <div className="card-text">
         <h4>{props.year}</h4>
@@ -64,9 +72,7 @@ props.fetchData()
       <div className="card__div2"></div>
       <div className="card__div3"></div>
       <button onClick={handleDelete}>Delete</button>
-      <button onClick={ModalPut}>Update</button>
-
-
+      <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length-1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl}/>
 
     </CardStyles>
 

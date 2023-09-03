@@ -10,8 +10,12 @@ export const Main = () => {
   const [movieData, setMovieData] = useState([])
 
   const { getAccessTokenSilently, user } = useAuth0()
+  let url = "";
+if(user) {
 
-  const url = `users/${user?.email}`
+   url = `users/${user?.email}`
+
+}
   const fetchData = async () => {
 
     const data = await FetchApi(url, getAccessTokenSilently)
@@ -20,14 +24,15 @@ export const Main = () => {
   }
   useEffect(() => {
 
-  
     fetchData();
-
-    
+    const fetchInterval = setInterval(() => fetchData(), 5000);
+        return () =>
+            clearInterval(fetchInterval);
 
   }, [url])
 
   useEffect(() => {
+    console.log(movieData);
     
 
   }, [movieData])

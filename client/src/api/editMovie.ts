@@ -3,12 +3,11 @@ export const editMovie = async (url: string, data: any, getToken: any) => {
     const token = await getToken();
     const formData = new FormData();
 
-    formData.append("title", data.Name)
-    formData.append("genres", data.Genres)
-    formData.append("year", data.Year)
-    formData.append("score", data.Score)
-    formData.append("image", data.Image[0])
-
+    formData.append("title", data.title)
+    formData.append("genres", data.genres)
+    formData.append("year", data.year)
+    formData.append("score", data.score)
+   
     try {
 
         const response = await fetch(url, {
