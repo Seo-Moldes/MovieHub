@@ -32,7 +32,7 @@ export const Card = ({ ...props }) => {
 
   const url = `http://localhost:3000/movies/${props.id}`;
 
-const {getAccessTokenSilently} = useAuth0();
+const {getAccessTokenSilently, isAuthenticated} = useAuth0();
 
 const handleDelete = async () => {
 
@@ -51,6 +51,7 @@ console.log(props.genres);
   return (
 
     <CardStyles>
+      {isAuthenticated && <button onClick={handleDelete}>Delete</button>}
 
       <div className="card__div1">
         <img className="card__div1-img" src={props.imageUrl} alt={props.title} />
@@ -71,8 +72,7 @@ console.log(props.genres);
       </div>
       <div className="card__div2"></div>
       <div className="card__div3"></div>
-      <button onClick={handleDelete}>Delete</button>
-      <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length-1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl}/>
+      {isAuthenticated && <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length-1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl}/>}
 
     </CardStyles>
 

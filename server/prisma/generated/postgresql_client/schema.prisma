@@ -19,19 +19,18 @@ model Users {
 }
 
 model Movies {
-    id          Int       @id @default(autoincrement())
-    title       String
-    score       Int
-    year        Int
-    country     String
-    genres      Genres[]
-    genresArray String[]
-    createdAt   DateTime? @default(now())
-    updatedAt   DateTime? @updatedAt
-    users       Users?    @relation(fields: [usersId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-    usersId     Int?
-    imageUrl    String?
-    imageId     String?
+  id          Int    @id @default(autoincrement()) 
+  title       String
+  score       Int
+  year        Int
+  genres      Genres[]
+  genresArray String[]
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  users       Users?    @relation(fields: [usersId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  usersId     Int?   
+  imageUrl    String?
+  imageId     String?
 }
 
 model Publicmovies {
@@ -39,7 +38,6 @@ model Publicmovies {
     title       String
     score       Int
     year        Int
-    country     String
     genres      Genres[]
     genresArray String[]
     createdAt   DateTime? @default(now())
