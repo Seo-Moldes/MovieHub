@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { deleteMovie } from "../../api/deleteMovie";
 import { ModalUpdate } from "../modalUpdate/ModalUpdate";
 import { CardStyles } from "./card.styles"
@@ -32,47 +31,49 @@ export const Card = ({ ...props }) => {
 
   const url = `http://localhost:3000/movies/${props.id}`;
 
-const {getAccessTokenSilently, isAuthenticated} = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
-const handleDelete = async () => {
+  const handleDelete = async () => {
 
-await deleteMovie(url, getAccessTokenSilently)
-props.fetchData()
-
-
-}
-
-useEffect(() => {
-console.log(props.genres);
+    await deleteMovie(url, getAccessTokenSilently)
+    props.fetchData()
 
 
-}, [])
+  }
 
   return (
 
     <CardStyles>
-      {isAuthenticated && <button onClick={handleDelete}>Delete</button>}
 
       <div className="card__div1">
         <img className="card__div1-img" src={props.imageUrl} alt={props.title} />
       </div>
 
-      <div className="card-text">
+      <div className="card__div2">
+
         <h2>{props.title}</h2>
+
+
+        <h3> {props.genres[0] && props.genres[props.genres.length - 1].genre}  </h3>
+
+
+
+        <h4>Year - {props.year}</h4>
+
+
+        <h4>Score - {props.score}</h4>
+
       </div>
-      <div className="card-text">
-      <h3> {props.genres[0] && props.genres[props.genres.length-1].genre}  </h3>
-        
+
+
+
+      <div className="card__div3">
+        {isAuthenticated && <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length - 1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl} />}
+        {isAuthenticated && <button className="card__div2-button_delete" onClick={handleDelete}>Delete</button>}
+
       </div>
-      <div className="card-text">
-        <h4>{props.year}</h4>
-      </div>
-      <div className="card-text">
-        <h4>{props.score}</h4>
-      </div>
-      <div className="card__div2"></div>
-      <div className="card__div3"></div>
-      {isAuthenticated && <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length-1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl}/>}
+
+
 
     </CardStyles>
 

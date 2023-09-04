@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { imageFondo4 } from '../../assets/img';
 
 export const FooterStyles = styled.footer`
 
 grid-area: 5 / 1 / 6 / 6;
 background-color: gray;
+background-image: url(${imageFondo4});
+background-size: cover;
 
 display: grid;
 grid-template-columns: repeat(3, 1fr);

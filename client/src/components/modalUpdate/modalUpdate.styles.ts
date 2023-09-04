@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 export const ModalUpdateStyles = styled.div`
 .modal__btn-open {
-    width: 5vw;
-    height: 5vh;
+    width: 50px;
+    height: 30px;
 }
 
 .btn__logout {

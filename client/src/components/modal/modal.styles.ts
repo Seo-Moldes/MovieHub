@@ -3,16 +3,45 @@ export const ModalStyles = styled.div`
 .modal__btn-open {
     width: 5vw;
     height: 5vh;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px
+}
+
+.modal__btn-open:hover {
+  background-color: white;
+  color: black;
 }
 
 .btn__logout {
 width: 5vw;
 height: 5vh;
+background-color: black;
+color: white;
+border-radius: 5px;
+box-shadow: 1px 2px 3px
+  
 }
+
+.btn__logout:hover {
+  background-color: white;
+  color: black;
+}
+
 
 .btn__login {
 width: 5vw;
 height: 5vh;
+background-color: black;
+color: white;
+border-radius: 5px;
+    box-shadow: 1px 2px 3px
+}
+
+.btn__login:hover {
+  background-color: white;
+  color: black;
 }
 
 `;

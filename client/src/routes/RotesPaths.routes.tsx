@@ -21,8 +21,8 @@ export const RouterPaths = () => {
                         <Route index element={<HomePage />} />
                     </Route>
 
-                    <Route path="/" element={<PrivateRoute />}>
-                        <Route path="profile" element={<Profile />} />
+                    <Route path="/profile" element={<PrivateRoute />}>
+                        <Route path="/profile" element={<Profile />} />
                     </Route>
 
                     <Route path="*" element={<ErrorRoute />} />
