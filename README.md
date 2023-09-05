@@ -1,6 +1,6 @@
 # MovieHub
 
-![web-capture.png](client\src\assets\img\web-capture.png)
+![web-capture.png](client/src/assets/img/web-capture.png)
 
 ## Project Description
 
