@@ -36,10 +36,39 @@ height: 5vh;
 background-color: black;
 color: white;
 border-radius: 5px;
-    box-shadow: 1px 2px 3px
+box-shadow: 1px 2px 3px
 }
 
 .btn__login:hover {
+  background-color: white;
+  color: black;
+}
+
+.form__modal-btnAddMovie {
+background-color: black;
+color: white;
+border-radius: 5px;
+box-shadow: 1px 2px 3px;
+margin-top:5px
+
+}
+
+.form__modal-btnAddMovie:hover {
+
+  background-color: white;
+  color: black;
+}
+
+.btn_close_modal {
+
+  background-color: black;
+color: white;
+border-radius: 5px;
+box-shadow: 1px 2px 3px;
+}
+
+.btn_close_modal:hover {
+
   background-color: white;
   color: black;
 }

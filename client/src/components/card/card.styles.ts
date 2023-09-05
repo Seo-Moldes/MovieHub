@@ -9,10 +9,9 @@ display: flex;
   justify-content: flex-start;
   width: 160px;
   height: 280px;
- 
   border: 1px solid rgba(0, 0, 0, 0.8);
-
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px ;
+  border-radius:5px;
 
 
   .card__div1{
@@ -30,7 +29,21 @@ display: flex;
     }
   }
 
-  .card__div2 {}
+  .button_delete {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px;
+    width:40px;
+    height:23px
+    
+  }
+
+  .button_delete:hover {
+
+    background-color: white;
+    color: black;
+  }
 
   .card__div3 {
 
@@ -46,6 +59,25 @@ display: flex;
     
   }
 
+  }
+
+  .title_h2 {
+
+    font-size:12px;
+    margin-top:5px;
+    
+  }
+
+  .score_h4 {
+
+    margin-bottom:5px;
+    
+  }
+
+  .genre_h3 {
+
+    font-size:10px;
+    
   }
 
 `;

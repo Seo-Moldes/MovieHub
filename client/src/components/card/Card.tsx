@@ -51,30 +51,18 @@ export const Card = ({ ...props }) => {
 
       <div className="card__div2">
 
-        <h2>{props.title}</h2>
-
-
-        <h3> {props.genres[0] && props.genres[props.genres.length - 1].genre}  </h3>
-
-
-
+        <h2 className="title_h2">{props.title}</h2>
+        <h3 className="genre_h3"> {props.genres[0] && props.genres[props.genres.length - 1].genre}  </h3>
         <h4>Year - {props.year}</h4>
-
-
-        <h4>Score - {props.score}</h4>
+        <h4 className="score_h4">Score - {props.score}</h4>
 
       </div>
-
-
 
       <div className="card__div3">
         {isAuthenticated && <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length - 1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl} />}
-        {isAuthenticated && <button className="card__div2-button_delete" onClick={handleDelete}>Delete</button>}
+        {isAuthenticated && <button className="button_delete" onClick={handleDelete}>Delete</button>}
 
       </div>
-
-
-
     </CardStyles>
 
   )

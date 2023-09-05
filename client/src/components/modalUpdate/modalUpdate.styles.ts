@@ -1,8 +1,48 @@
 import styled from 'styled-components';
 export const ModalUpdateStyles = styled.div`
+
 .modal__btn-open {
-    width: 50px;
-    height: 30px;
+    width:40px;
+    height:23px;
+    background-color: black;
+    margin-bottom:5px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px
+}
+
+.form__modal-btnAddMovie {
+
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px;
+  margin-top: 5px
+}
+
+.form__modal-btnAddMovie:hover {
+
+  background-color: white;
+  color: black;
+}
+
+.modal__btn-open:hover {
+  background-color: white;
+  color: black;
+}
+
+.btn_close {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 2px 3px;
+
+}
+
+.btn_close:hover {
+  background-color: white;
+  color: black;
+
 }
 
 .btn__logout {
@@ -28,6 +68,7 @@ export const ModalUpdateContainer = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 100;
+  
 `;
 
 export const ModalUpdateContent = styled.div`
