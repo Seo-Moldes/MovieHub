@@ -10,7 +10,7 @@ width: 100vw;
 
 
 .mainGrid {
-    grid-area: 2 / 1 / 5 / 6;
+grid-area: 2 / 1 / 5 / 6;
 display: grid;
 align-items:center;
 justify-content: center;

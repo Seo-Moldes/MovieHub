@@ -52,7 +52,7 @@ export const Card = ({ ...props }) => {
       <div className="card__div2">
 
         <h2 className="title_h2">{props.title}</h2>
-        <h3 className="genre_h3"> {props.genres[0] && props.genres[props.genres.length - 1].genre}  </h3>
+        <h3 className="genre_h3"> {props.genresArray.join(", ")} </h3>
         <h4>Year - {props.year}</h4>
         <h4 className="score_h4">Score - {props.score}</h4>
 

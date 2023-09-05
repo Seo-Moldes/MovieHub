@@ -14,7 +14,7 @@ justify-content: center;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80%;
+    height: 100%;
     padding: 1vw;
     gap: 1vw;
 }

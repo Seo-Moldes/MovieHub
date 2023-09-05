@@ -23,6 +23,8 @@ if(user) {
   useEffect(() => {
 
     fetchData();
+console.log(movieData);
+
     const fetchInterval = setInterval(() => fetchData(), 3000);
         return () =>
             clearInterval(fetchInterval);

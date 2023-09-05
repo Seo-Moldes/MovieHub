@@ -14,6 +14,7 @@ export const ModalStyles = styled.div`
   color: black;
 }
 
+
 .btn__logout {
 width: 5vw;
 height: 5vh;
