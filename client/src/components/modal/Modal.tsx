@@ -16,7 +16,6 @@ const onsubmit = handleSubmit( (data: any) => {
   const url = `http://localhost:3000/movies/${user?.email}`;
   
   createMovie(url, data, getAccessTokenSilently)
-  console.log(data);
   
 
   setIsOpen(!modalIsOpen);

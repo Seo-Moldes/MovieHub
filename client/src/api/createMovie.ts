@@ -2,7 +2,7 @@ export const createMovie = async (url: string, data: any, getToken: any) => {
 
     const token = await getToken();
     const formData = new FormData()
-    console.log(data.Genre);
+   
     
 
     formData.append("title", data.Name)
@@ -25,13 +25,12 @@ export const createMovie = async (url: string, data: any, getToken: any) => {
 
         if (response.ok) {
 
-            console.log(response);
-
+           
         } else {
             throw new Error("No response");
         }
 
     } catch (error) {
-        console.log(error);
+        
     }
 }

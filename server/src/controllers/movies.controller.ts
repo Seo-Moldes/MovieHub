@@ -3,11 +3,9 @@ import { uploadImage } from "../config/cloudinary";
 import fs from "fs-extra";
 import {prismaClient as prisma} from '../config/prismaClient'
 import { convertToType } from "../config/convertType";
-//  import prisma from "../db/prismaClient";
 
 
 export const createMovie = async (req: Request, res: Response): Promise<Response> => {
-  console.log(req.body);
  
 
   try {
@@ -137,8 +135,6 @@ export const updateMovieByID = async (req: Request, res: Response): Promise<Resp
       genreIDs.push(genre.id);
     }
     
-
-
       const movieUpdate = await prisma.movies.update({
         where: { id: convertToType(movieID) },
         data: {
@@ -155,7 +151,7 @@ export const updateMovieByID = async (req: Request, res: Response): Promise<Resp
       return res.status(200).send(movieUpdate);
     
   } catch (error) {
-    console.log(error);
+    
     return res.status(500).send(error);
   }
 };
@@ -195,7 +191,7 @@ export const deleteMovieByID = async (req: Request, res: Response): Promise<Resp
 
     return res.status(200).send({ status: "Success", msg: "Deleted movie by ID" });
   } catch (error) {
-    console.log(error);
+    
     return res.status(500).send(error);
   }
 };

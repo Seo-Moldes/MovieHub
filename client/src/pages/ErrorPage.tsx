@@ -1,5 +1,5 @@
 import { imageError } from "../assets/img"
-import { Navigate, useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 export const ErrorPage = () => {
 const navigate = useNavigate()

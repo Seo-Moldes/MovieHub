@@ -7,6 +7,8 @@ grid-template-columns: repeat(5, 1fr);
 grid-template-rows: repeat(5, 1fr);
 height: 100vh;
 width: 100vw;
+
+
 .mainGrid {
     grid-area: 2 / 1 / 5 / 6;
 display: grid;

@@ -5,8 +5,6 @@ import { PrivateMovies } from "./PrivateMovies"
 
 export const Main = () => {
 
-  
-
   const { user, isAuthenticated } = useAuth0()
   
 

@@ -22,13 +22,13 @@ export const editMovie = async (url: string, data: any, getToken: any) => {
 
         if (response.ok) {
 
-            console.log(response);
+            
 
         } else {
             throw new Error("No response");
         }
 
     } catch (error) {
-        console.log(error);
+        
     }
 }

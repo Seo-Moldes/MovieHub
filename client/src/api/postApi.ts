@@ -16,7 +16,7 @@ export const postApi = async (url: string, data: any, getToken: any) => {
 
         if (response.ok) {
 
-            console.log(response);
+         
 
         } else {
             throw new Error("No response");
@@ -24,6 +24,6 @@ export const postApi = async (url: string, data: any, getToken: any) => {
         }
 
     } catch (error) {
-        console.log(error);
+        
     }
 }

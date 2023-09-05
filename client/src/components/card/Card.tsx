@@ -27,7 +27,7 @@ interface GenreType {
 }
 
 export const Card = ({ ...props }) => {
-  console.log(props);
+  
 
   const url = `http://localhost:3000/movies/${props.id}`;
 
