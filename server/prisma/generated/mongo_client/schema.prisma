@@ -33,6 +33,7 @@ model Movies {
   usersId     String?   @db.ObjectId
   imageUrl    String?
   imageId     String?
+  description String?
 }
 
 model Genres {

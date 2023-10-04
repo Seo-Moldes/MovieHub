@@ -133,7 +133,8 @@ exports.Prisma.MoviesScalarFieldEnum = {
   updatedAt: 'updatedAt',
   usersId: 'usersId',
   imageUrl: 'imageUrl',
-  imageId: 'imageId'
+  imageId: 'imageId',
+  description: 'description'
 };
 
 exports.Prisma.GenresScalarFieldEnum = {

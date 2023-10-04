@@ -31,6 +31,8 @@ model Movies {
   usersId     Int?   
   imageUrl    String?
   imageId     String?
+  description String?
+
 }
 
 model Publicmovies {

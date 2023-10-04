@@ -2220,6 +2220,7 @@ export namespace Prisma {
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
   }
 
   export type MoviesMaxAggregateOutputType = {
@@ -2232,6 +2233,7 @@ export namespace Prisma {
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
   }
 
   export type MoviesCountAggregateOutputType = {
@@ -2245,6 +2247,7 @@ export namespace Prisma {
     usersId: number
     imageUrl: number
     imageId: number
+    description: number
     _all: number
   }
 
@@ -2273,6 +2276,7 @@ export namespace Prisma {
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
   }
 
   export type MoviesMaxAggregateInputType = {
@@ -2285,6 +2289,7 @@ export namespace Prisma {
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
   }
 
   export type MoviesCountAggregateInputType = {
@@ -2298,6 +2303,7 @@ export namespace Prisma {
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
     _all?: true
   }
 
@@ -2398,6 +2404,7 @@ export namespace Prisma {
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
     _count: MoviesCountAggregateOutputType | null
     _avg: MoviesAvgAggregateOutputType | null
     _sum: MoviesSumAggregateOutputType | null
@@ -2430,6 +2437,7 @@ export namespace Prisma {
     usersId?: boolean
     imageUrl?: boolean
     imageId?: boolean
+    description?: boolean
     genres?: boolean | Movies$genresArgs<ExtArgs>
     users?: boolean | Movies$usersArgs<ExtArgs>
     _count?: boolean | MoviesCountOutputTypeDefaultArgs<ExtArgs>
@@ -2446,6 +2454,7 @@ export namespace Prisma {
     usersId?: boolean
     imageUrl?: boolean
     imageId?: boolean
+    description?: boolean
   }
 
   export type MoviesInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -2472,6 +2481,7 @@ export namespace Prisma {
       usersId: number | null
       imageUrl: string | null
       imageId: string | null
+      description: string | null
     }, ExtArgs["result"]["movies"]>
     composites: {}
   }
@@ -2879,6 +2889,7 @@ export namespace Prisma {
     readonly usersId: FieldRef<"Movies", 'Int'>
     readonly imageUrl: FieldRef<"Movies", 'String'>
     readonly imageId: FieldRef<"Movies", 'String'>
+    readonly description: FieldRef<"Movies", 'String'>
   }
     
 
@@ -5310,7 +5321,8 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     usersId: 'usersId',
     imageUrl: 'imageUrl',
-    imageId: 'imageId'
+    imageId: 'imageId',
+    description: 'description'
   };
 
   export type MoviesScalarFieldEnum = (typeof MoviesScalarFieldEnum)[keyof typeof MoviesScalarFieldEnum]
@@ -5507,6 +5519,7 @@ export namespace Prisma {
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
     genres?: GenresListRelationFilter
     users?: XOR<UsersNullableRelationFilter, UsersWhereInput> | null
   }
@@ -5522,6 +5535,7 @@ export namespace Prisma {
     usersId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     imageId?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     genres?: GenresOrderByRelationAggregateInput
     users?: UsersOrderByWithRelationInput
   }
@@ -5540,6 +5554,7 @@ export namespace Prisma {
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
     genres?: GenresListRelationFilter
     users?: XOR<UsersNullableRelationFilter, UsersWhereInput> | null
   }, "id">
@@ -5555,6 +5570,7 @@ export namespace Prisma {
     usersId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     imageId?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: MoviesCountOrderByAggregateInput
     _avg?: MoviesAvgOrderByAggregateInput
     _max?: MoviesMaxOrderByAggregateInput
@@ -5576,6 +5592,7 @@ export namespace Prisma {
     usersId?: IntNullableWithAggregatesFilter<"Movies"> | number | null
     imageUrl?: StringNullableWithAggregatesFilter<"Movies"> | string | null
     imageId?: StringNullableWithAggregatesFilter<"Movies"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Movies"> | string | null
   }
 
   export type PublicmoviesWhereInput = {
@@ -5793,6 +5810,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresCreateNestedManyWithoutMoviesInput
     users?: UsersCreateNestedOneWithoutMoviesInput
   }
@@ -5808,6 +5826,7 @@ export namespace Prisma {
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresUncheckedCreateNestedManyWithoutMoviesInput
   }
 
@@ -5820,6 +5839,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUpdateManyWithoutMoviesNestedInput
     users?: UsersUpdateOneWithoutMoviesNestedInput
   }
@@ -5835,6 +5855,7 @@ export namespace Prisma {
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUncheckedUpdateManyWithoutMoviesNestedInput
   }
 
@@ -5849,6 +5870,7 @@ export namespace Prisma {
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesUpdateManyMutationInput = {
@@ -5860,6 +5882,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MoviesUncheckedUpdateManyInput = {
@@ -5873,6 +5896,7 @@ export namespace Prisma {
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PublicmoviesCreateInput = {
@@ -6222,6 +6246,7 @@ export namespace Prisma {
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesAvgOrderByAggregateInput = {
@@ -6241,6 +6266,7 @@ export namespace Prisma {
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesMinOrderByAggregateInput = {
@@ -6253,6 +6279,7 @@ export namespace Prisma {
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesSumOrderByAggregateInput = {
@@ -6835,6 +6862,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresCreateNestedManyWithoutMoviesInput
   }
 
@@ -6848,6 +6876,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresUncheckedCreateNestedManyWithoutMoviesInput
   }
 
@@ -6891,6 +6920,7 @@ export namespace Prisma {
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
   }
 
   export type GenresCreateWithoutMoviesInput = {
@@ -7046,6 +7076,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     users?: UsersCreateNestedOneWithoutMoviesInput
   }
 
@@ -7060,6 +7091,7 @@ export namespace Prisma {
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesCreateOrConnectWithoutGenresInput = {
@@ -7115,6 +7147,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     users?: UsersUpdateOneWithoutMoviesNestedInput
   }
 
@@ -7129,6 +7162,7 @@ export namespace Prisma {
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PublicmoviesUpsertWithoutGenresInput = {
@@ -7175,6 +7209,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesUpdateWithoutUsersInput = {
@@ -7186,6 +7221,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUpdateManyWithoutMoviesNestedInput
   }
 
@@ -7199,6 +7235,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUncheckedUpdateManyWithoutMoviesNestedInput
   }
 
@@ -7212,6 +7249,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GenresCreateManyMoviesInput = {

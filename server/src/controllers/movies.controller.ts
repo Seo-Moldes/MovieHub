@@ -10,11 +10,12 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
 
   try {
 
-    let { title, year, score, genres } = req.body;
+    let { title, year, score, genres, description } = req.body;
     const { userID } = req.params;
     
 
     if (typeof title !== "string") title = title.toString();
+    if (typeof description !== "string") description = description.toString();
     if (typeof year !== "number") year = Number(year);
     if (typeof score !== "number") score = Number(score);
     if (!Array.isArray(genres)) genres = [genres];
@@ -40,6 +41,7 @@ export const createMovie = async (req: Request, res: Response): Promise<Response
           title,
           year,
           score,
+          description,
 
           imageUrl: upload.secure_url,
           imageId: upload.public_id,
@@ -116,7 +118,7 @@ export const getAllMovies = async (req: Request, res: Response): Promise<Respons
 
 export const updateMovieByID = async (req: Request, res: Response): Promise<Response> => {
   const { movieID } = req.params;
-  let { title, score, year, genres } = req.body;
+  let { title, score, year, genres, description } = req.body;
 
   if (typeof title !== "string") title = title.toString();
   if (typeof year !== "number") year = Number(year);
@@ -141,6 +143,8 @@ export const updateMovieByID = async (req: Request, res: Response): Promise<Resp
           title,
           score,
           year,
+          description,
+          
           genres: {
             connect: genreIDs.map((genreID: string) => ({ id: genreID })),
           },
