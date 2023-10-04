@@ -15,9 +15,9 @@ app.set("PORT", process.env.PORT || 5002);
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
-app.use("/movies", checkJwtMiddleware, MoviesRouter)
-app.use("/users", checkJwtMiddleware, UserRouter)
-app.use("/genres", checkJwtMiddleware, GenreRouter)
+app.use("/movies",  MoviesRouter)
+app.use("/users",  UserRouter)
+app.use("/genres",  GenreRouter)
 app.use("/publicmovies", PublicRouter )
 
 
