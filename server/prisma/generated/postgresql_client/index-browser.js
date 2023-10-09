@@ -135,13 +135,13 @@ exports.Prisma.MoviesScalarFieldEnum = {
   title: 'title',
   score: 'score',
   year: 'year',
-  country: 'country',
   genresArray: 'genresArray',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   usersId: 'usersId',
   imageUrl: 'imageUrl',
-  imageId: 'imageId'
+  imageId: 'imageId',
+  description: 'description'
 };
 
 exports.Prisma.PublicmoviesScalarFieldEnum = {
@@ -149,7 +149,6 @@ exports.Prisma.PublicmoviesScalarFieldEnum = {
   title: 'title',
   score: 'score',
   year: 'year',
-  country: 'country',
   genresArray: 'genresArray',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',

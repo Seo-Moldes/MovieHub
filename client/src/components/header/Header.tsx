@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <HeaderStyles>
       <div className="div-header1">
-        <Link to={"/"}><h2>MovieHUB</h2></Link>
+        <Link to={"/"}><h2 className="moviehub">MovieHUB</h2></Link>
       </div>
       <div className="div-header2"></div>
       <div className="div-header3">

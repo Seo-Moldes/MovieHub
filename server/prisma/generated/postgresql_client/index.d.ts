@@ -2215,12 +2215,12 @@ export namespace Prisma {
     title: string | null
     score: number | null
     year: number | null
-    country: string | null
     createdAt: Date | null
     updatedAt: Date | null
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
   }
 
   export type MoviesMaxAggregateOutputType = {
@@ -2228,12 +2228,12 @@ export namespace Prisma {
     title: string | null
     score: number | null
     year: number | null
-    country: string | null
     createdAt: Date | null
     updatedAt: Date | null
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
   }
 
   export type MoviesCountAggregateOutputType = {
@@ -2241,13 +2241,13 @@ export namespace Prisma {
     title: number
     score: number
     year: number
-    country: number
     genresArray: number
     createdAt: number
     updatedAt: number
     usersId: number
     imageUrl: number
     imageId: number
+    description: number
     _all: number
   }
 
@@ -2271,12 +2271,12 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     createdAt?: true
     updatedAt?: true
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
   }
 
   export type MoviesMaxAggregateInputType = {
@@ -2284,12 +2284,12 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     createdAt?: true
     updatedAt?: true
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
   }
 
   export type MoviesCountAggregateInputType = {
@@ -2297,13 +2297,13 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     genresArray?: true
     createdAt?: true
     updatedAt?: true
     usersId?: true
     imageUrl?: true
     imageId?: true
+    description?: true
     _all?: true
   }
 
@@ -2398,13 +2398,13 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray: string[]
     createdAt: Date | null
     updatedAt: Date | null
     usersId: number | null
     imageUrl: string | null
     imageId: string | null
+    description: string | null
     _count: MoviesCountAggregateOutputType | null
     _avg: MoviesAvgAggregateOutputType | null
     _sum: MoviesSumAggregateOutputType | null
@@ -2431,13 +2431,13 @@ export namespace Prisma {
     title?: boolean
     score?: boolean
     year?: boolean
-    country?: boolean
     genresArray?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     usersId?: boolean
     imageUrl?: boolean
     imageId?: boolean
+    description?: boolean
     genres?: boolean | Movies$genresArgs<ExtArgs>
     users?: boolean | Movies$usersArgs<ExtArgs>
     _count?: boolean | MoviesCountOutputTypeDefaultArgs<ExtArgs>
@@ -2448,13 +2448,13 @@ export namespace Prisma {
     title?: boolean
     score?: boolean
     year?: boolean
-    country?: boolean
     genresArray?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     usersId?: boolean
     imageUrl?: boolean
     imageId?: boolean
+    description?: boolean
   }
 
   export type MoviesInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -2475,13 +2475,13 @@ export namespace Prisma {
       title: string
       score: number
       year: number
-      country: string
       genresArray: string[]
       createdAt: Date | null
       updatedAt: Date | null
       usersId: number | null
       imageUrl: string | null
       imageId: string | null
+      description: string | null
     }, ExtArgs["result"]["movies"]>
     composites: {}
   }
@@ -2883,13 +2883,13 @@ export namespace Prisma {
     readonly title: FieldRef<"Movies", 'String'>
     readonly score: FieldRef<"Movies", 'Int'>
     readonly year: FieldRef<"Movies", 'Int'>
-    readonly country: FieldRef<"Movies", 'String'>
     readonly genresArray: FieldRef<"Movies", 'String[]'>
     readonly createdAt: FieldRef<"Movies", 'DateTime'>
     readonly updatedAt: FieldRef<"Movies", 'DateTime'>
     readonly usersId: FieldRef<"Movies", 'Int'>
     readonly imageUrl: FieldRef<"Movies", 'String'>
     readonly imageId: FieldRef<"Movies", 'String'>
+    readonly description: FieldRef<"Movies", 'String'>
   }
     
 
@@ -3283,7 +3283,6 @@ export namespace Prisma {
     title: string | null
     score: number | null
     year: number | null
-    country: string | null
     createdAt: Date | null
     updatedAt: Date | null
     imageUrl: string | null
@@ -3295,7 +3294,6 @@ export namespace Prisma {
     title: string | null
     score: number | null
     year: number | null
-    country: string | null
     createdAt: Date | null
     updatedAt: Date | null
     imageUrl: string | null
@@ -3307,7 +3305,6 @@ export namespace Prisma {
     title: number
     score: number
     year: number
-    country: number
     genresArray: number
     createdAt: number
     updatedAt: number
@@ -3334,7 +3331,6 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     createdAt?: true
     updatedAt?: true
     imageUrl?: true
@@ -3346,7 +3342,6 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     createdAt?: true
     updatedAt?: true
     imageUrl?: true
@@ -3358,7 +3353,6 @@ export namespace Prisma {
     title?: true
     score?: true
     year?: true
-    country?: true
     genresArray?: true
     createdAt?: true
     updatedAt?: true
@@ -3458,7 +3452,6 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray: string[]
     createdAt: Date | null
     updatedAt: Date | null
@@ -3490,7 +3483,6 @@ export namespace Prisma {
     title?: boolean
     score?: boolean
     year?: boolean
-    country?: boolean
     genresArray?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3505,7 +3497,6 @@ export namespace Prisma {
     title?: boolean
     score?: boolean
     year?: boolean
-    country?: boolean
     genresArray?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3529,7 +3520,6 @@ export namespace Prisma {
       title: string
       score: number
       year: number
-      country: string
       genresArray: string[]
       createdAt: Date | null
       updatedAt: Date | null
@@ -3934,7 +3924,6 @@ export namespace Prisma {
     readonly title: FieldRef<"Publicmovies", 'String'>
     readonly score: FieldRef<"Publicmovies", 'Int'>
     readonly year: FieldRef<"Publicmovies", 'Int'>
-    readonly country: FieldRef<"Publicmovies", 'String'>
     readonly genresArray: FieldRef<"Publicmovies", 'String[]'>
     readonly createdAt: FieldRef<"Publicmovies", 'DateTime'>
     readonly updatedAt: FieldRef<"Publicmovies", 'DateTime'>
@@ -5327,13 +5316,13 @@ export namespace Prisma {
     title: 'title',
     score: 'score',
     year: 'year',
-    country: 'country',
     genresArray: 'genresArray',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     usersId: 'usersId',
     imageUrl: 'imageUrl',
-    imageId: 'imageId'
+    imageId: 'imageId',
+    description: 'description'
   };
 
   export type MoviesScalarFieldEnum = (typeof MoviesScalarFieldEnum)[keyof typeof MoviesScalarFieldEnum]
@@ -5344,7 +5333,6 @@ export namespace Prisma {
     title: 'title',
     score: 'score',
     year: 'year',
-    country: 'country',
     genresArray: 'genresArray',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -5525,13 +5513,13 @@ export namespace Prisma {
     title?: StringFilter<"Movies"> | string
     score?: IntFilter<"Movies"> | number
     year?: IntFilter<"Movies"> | number
-    country?: StringFilter<"Movies"> | string
     genresArray?: StringNullableListFilter<"Movies">
     createdAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
     genres?: GenresListRelationFilter
     users?: XOR<UsersNullableRelationFilter, UsersWhereInput> | null
   }
@@ -5541,13 +5529,13 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     usersId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     imageId?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     genres?: GenresOrderByRelationAggregateInput
     users?: UsersOrderByWithRelationInput
   }
@@ -5560,13 +5548,13 @@ export namespace Prisma {
     title?: StringFilter<"Movies"> | string
     score?: IntFilter<"Movies"> | number
     year?: IntFilter<"Movies"> | number
-    country?: StringFilter<"Movies"> | string
     genresArray?: StringNullableListFilter<"Movies">
     createdAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
     genres?: GenresListRelationFilter
     users?: XOR<UsersNullableRelationFilter, UsersWhereInput> | null
   }, "id">
@@ -5576,13 +5564,13 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     usersId?: SortOrderInput | SortOrder
     imageUrl?: SortOrderInput | SortOrder
     imageId?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     _count?: MoviesCountOrderByAggregateInput
     _avg?: MoviesAvgOrderByAggregateInput
     _max?: MoviesMaxOrderByAggregateInput
@@ -5598,13 +5586,13 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Movies"> | string
     score?: IntWithAggregatesFilter<"Movies"> | number
     year?: IntWithAggregatesFilter<"Movies"> | number
-    country?: StringWithAggregatesFilter<"Movies"> | string
     genresArray?: StringNullableListFilter<"Movies">
     createdAt?: DateTimeNullableWithAggregatesFilter<"Movies"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Movies"> | Date | string | null
     usersId?: IntNullableWithAggregatesFilter<"Movies"> | number | null
     imageUrl?: StringNullableWithAggregatesFilter<"Movies"> | string | null
     imageId?: StringNullableWithAggregatesFilter<"Movies"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Movies"> | string | null
   }
 
   export type PublicmoviesWhereInput = {
@@ -5615,7 +5603,6 @@ export namespace Prisma {
     title?: StringFilter<"Publicmovies"> | string
     score?: IntFilter<"Publicmovies"> | number
     year?: IntFilter<"Publicmovies"> | number
-    country?: StringFilter<"Publicmovies"> | string
     genresArray?: StringNullableListFilter<"Publicmovies">
     createdAt?: DateTimeNullableFilter<"Publicmovies"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Publicmovies"> | Date | string | null
@@ -5629,7 +5616,6 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -5646,7 +5632,6 @@ export namespace Prisma {
     title?: StringFilter<"Publicmovies"> | string
     score?: IntFilter<"Publicmovies"> | number
     year?: IntFilter<"Publicmovies"> | number
-    country?: StringFilter<"Publicmovies"> | string
     genresArray?: StringNullableListFilter<"Publicmovies">
     createdAt?: DateTimeNullableFilter<"Publicmovies"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Publicmovies"> | Date | string | null
@@ -5660,7 +5645,6 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
@@ -5681,7 +5665,6 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Publicmovies"> | string
     score?: IntWithAggregatesFilter<"Publicmovies"> | number
     year?: IntWithAggregatesFilter<"Publicmovies"> | number
-    country?: StringWithAggregatesFilter<"Publicmovies"> | string
     genresArray?: StringNullableListFilter<"Publicmovies">
     createdAt?: DateTimeNullableWithAggregatesFilter<"Publicmovies"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Publicmovies"> | Date | string | null
@@ -5822,12 +5805,12 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresCreateNestedManyWithoutMoviesInput
     users?: UsersCreateNestedOneWithoutMoviesInput
   }
@@ -5837,13 +5820,13 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresUncheckedCreateNestedManyWithoutMoviesInput
   }
 
@@ -5851,12 +5834,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUpdateManyWithoutMoviesNestedInput
     users?: UsersUpdateOneWithoutMoviesNestedInput
   }
@@ -5866,13 +5849,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUncheckedUpdateManyWithoutMoviesNestedInput
   }
 
@@ -5881,25 +5864,25 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesUpdateManyMutationInput = {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type MoviesUncheckedUpdateManyInput = {
@@ -5907,20 +5890,19 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PublicmoviesCreateInput = {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: PublicmoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
@@ -5934,7 +5916,6 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: PublicmoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
@@ -5947,7 +5928,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -5961,7 +5941,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -5975,7 +5954,6 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: PublicmoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
@@ -5987,7 +5965,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -6000,7 +5977,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -6264,13 +6240,13 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesAvgOrderByAggregateInput = {
@@ -6285,12 +6261,12 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesMinOrderByAggregateInput = {
@@ -6298,12 +6274,12 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     usersId?: SortOrder
     imageUrl?: SortOrder
     imageId?: SortOrder
+    description?: SortOrder
   }
 
   export type MoviesSumOrderByAggregateInput = {
@@ -6366,7 +6342,6 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     genresArray?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6385,7 +6360,6 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     imageUrl?: SortOrder
@@ -6397,7 +6371,6 @@ export namespace Prisma {
     title?: SortOrder
     score?: SortOrder
     year?: SortOrder
-    country?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     imageUrl?: SortOrder
@@ -6884,12 +6857,12 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresCreateNestedManyWithoutMoviesInput
   }
 
@@ -6898,12 +6871,12 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     genres?: GenresUncheckedCreateNestedManyWithoutMoviesInput
   }
 
@@ -6941,13 +6914,13 @@ export namespace Prisma {
     title?: StringFilter<"Movies"> | string
     score?: IntFilter<"Movies"> | number
     year?: IntFilter<"Movies"> | number
-    country?: StringFilter<"Movies"> | string
     genresArray?: StringNullableListFilter<"Movies">
     createdAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Movies"> | Date | string | null
     usersId?: IntNullableFilter<"Movies"> | number | null
     imageUrl?: StringNullableFilter<"Movies"> | string | null
     imageId?: StringNullableFilter<"Movies"> | string | null
+    description?: StringNullableFilter<"Movies"> | string | null
   }
 
   export type GenresCreateWithoutMoviesInput = {
@@ -7098,12 +7071,12 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
     users?: UsersCreateNestedOneWithoutMoviesInput
   }
 
@@ -7112,13 +7085,13 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     usersId?: number | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesCreateOrConnectWithoutGenresInput = {
@@ -7130,7 +7103,6 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: PublicmoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
@@ -7143,7 +7115,6 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: PublicmoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
@@ -7171,12 +7142,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     users?: UsersUpdateOneWithoutMoviesNestedInput
   }
 
@@ -7185,13 +7156,13 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     usersId?: NullableIntFieldUpdateOperationsInput | number | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PublicmoviesUpsertWithoutGenresInput = {
@@ -7209,7 +7180,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -7222,7 +7192,6 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: PublicmoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -7235,24 +7204,24 @@ export namespace Prisma {
     title: string
     score: number
     year: number
-    country: string
     genresArray?: MoviesCreategenresArrayInput | string[]
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     imageUrl?: string | null
     imageId?: string | null
+    description?: string | null
   }
 
   export type MoviesUpdateWithoutUsersInput = {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUpdateManyWithoutMoviesNestedInput
   }
 
@@ -7261,12 +7230,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     genres?: GenresUncheckedUpdateManyWithoutMoviesNestedInput
   }
 
@@ -7275,12 +7244,12 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     score?: IntFieldUpdateOperationsInput | number
     year?: IntFieldUpdateOperationsInput | number
-    country?: StringFieldUpdateOperationsInput | string
     genresArray?: MoviesUpdategenresArrayInput | string[]
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
     imageId?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type GenresCreateManyMoviesInput = {

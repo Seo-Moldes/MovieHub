@@ -70,7 +70,7 @@ const onsubmit = handleSubmit( (data: any) => {
           
            
             </form>
-            <ModalUpdateButton onClick={toggleModal}>Close Modal</ModalUpdateButton>
+            <ModalUpdateButton className="btn_close" onClick={toggleModal}>Close Modal</ModalUpdateButton>
           </ModalUpdateContent>
         </ModalUpdateContainer>
       )}

@@ -33,6 +33,7 @@ model Movies {
   usersId     String?   @db.ObjectId
   imageUrl    String?
   imageId     String?
+  description String?
 }
 
 model Genres {
@@ -42,4 +43,20 @@ model Genres {
   updatedAt DateTime @updatedAt
   movies    Movies?  @relation(fields: [moviesId], references: [id])
   moviesId  String?  @db.ObjectId
+  Publicmovies   Publicmovies? @relation(fields: [publicmoviesId], references: [id])
+  publicmoviesId String?       @db.ObjectId
+}
+
+model Publicmovies {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  score       Int
+  year        Int
+  country     String
+  genres      Genres[]
+  genresArray String[]
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @updatedAt
+  imageUrl    String?
+  imageId     String? 
 }

@@ -16,7 +16,6 @@ const onsubmit = handleSubmit( (data: any) => {
   const url = `http://localhost:3000/movies/${user?.email}`;
   
   createMovie(url, data, getAccessTokenSilently)
-  console.log(data);
   
 
   setIsOpen(!modalIsOpen);
@@ -66,7 +65,7 @@ const onsubmit = handleSubmit( (data: any) => {
           
            
             </form>
-            <ModalButton onClick={toggleModal}>Close Modal</ModalButton>
+            <ModalButton className="btn_close_modal" onClick={toggleModal}>Close Modal</ModalButton>
           </ModalContent>
         </ModalContainer>
       )}

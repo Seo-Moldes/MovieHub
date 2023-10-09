@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import {prismaClient as prisma} from '../config/prismaClient'
+import { convertToType } from "../config/convertType";
+
 
 export const createGenre = async (req: Request, res: Response): Promise<Response> => {
   const { genre } = req.body;
@@ -19,7 +21,7 @@ export const getGenreByID = async (req: Request, res: Response): Promise<Respons
   try {
 
     const genre = await prisma.genres.findUnique({
-      where: { id: genreID }
+      where: { id: convertToType(genreID) }
     });
     return res.status(200).send({ status: "Success", msg: "Get Genre By Id Succesfully", genre });
   } catch (error) {
@@ -47,7 +49,7 @@ export const updateGenreByID = async (req: Request, res: Response): Promise<Resp
     }
     const genreFound = await prisma.genres.update({
       where: {
-        id: genreID
+        id: convertToType(genreID)
       },
       data: { genre }
     })
@@ -64,7 +66,7 @@ export const deleteGenreByID = async (req: Request, res: Response): Promise<Resp
   try {
 
     const deleteGenre = await prisma.genres.delete({
-      where: { id: genreID }
+      where: { id: convertToType(genreID) }
     })
 
     return res.status(200).send({ msg: 'Genres not found', deleteGenre });

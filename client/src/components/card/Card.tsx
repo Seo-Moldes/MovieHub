@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { deleteMovie } from "../../api/deleteMovie";
 import { ModalUpdate } from "../modalUpdate/ModalUpdate";
 import { CardStyles } from "./card.styles"
@@ -28,25 +27,19 @@ interface GenreType {
 }
 
 export const Card = ({ ...props }) => {
-  console.log(props);
+  
 
   const url = `http://localhost:3000/movies/${props.id}`;
 
-const {getAccessTokenSilently} = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
-const handleDelete = async () => {
+  const handleDelete = async () => {
 
-await deleteMovie(url, getAccessTokenSilently)
-props.fetchData()
-
-
-}
-
-useEffect(() => {
-console.log(props.genres);
+    await deleteMovie(url, getAccessTokenSilently)
+    props.fetchData()
 
 
-}, [])
+  }
 
   return (
 
@@ -56,24 +49,20 @@ console.log(props.genres);
         <img className="card__div1-img" src={props.imageUrl} alt={props.title} />
       </div>
 
-      <div className="card-text">
-        <h2>{props.title}</h2>
-      </div>
-      <div className="card-text">
-      <h3> {props.genres[0] && props.genres[props.genres.length-1].genre}  </h3>
-        
-      </div>
-      <div className="card-text">
-        <h4>{props.year}</h4>
-      </div>
-      <div className="card-text">
-        <h4>{props.score}</h4>
-      </div>
-      <div className="card__div2"></div>
-      <div className="card__div3"></div>
-      <button onClick={handleDelete}>Delete</button>
-      <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length-1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl}/>
+      <div className="card__div2">
 
+        <h2 className="title_h2">{props.title}</h2>
+        <h3 className="genre_h3"> {props.genresArray.join(", ")} </h3>
+        <h4>Year - {props.year}</h4>
+        <h4 className="score_h4">Score - {props.score}</h4>
+
+      </div>
+
+      <div className="card__div3">
+        {isAuthenticated && <ModalUpdate id={props.id} title={props.title} score={props.score} year={props.year} genres={props.genres[0] ? props.genres[props.genres.length - 1].genre : ''} imageId={props.imageId} imageUrl={props.imageUrl} />}
+        {isAuthenticated && <button className="button_delete" onClick={handleDelete}>Delete</button>}
+
+      </div>
     </CardStyles>
 
   )

@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import {prismaClient as prisma} from '../config/prismaClient'
 
+
 export const createUser = async (req: Request, res: Response): Promise<Response> => {
 
     try {
     const { name, email } = req.body;
 
-        console.log(name, email);
 
         const user = await prisma.users.findFirst({
             where: {
@@ -14,7 +14,6 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
             }
         })
         if (user) {
-            console.log(user);
             
             return res.send('User already exists')
         }
